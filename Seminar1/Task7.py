@@ -26,11 +26,11 @@ while True:
             result = (number%numberCounter0) * (number//numberCounter0)
         else:
             numberType = "трёхзначное число"
-            num3 = (number%numberCounter0) * numberCounter00
-            number = number//numberCounter0
-            num2 = (number%numberCounter0) * numberCounter0
-            num1 = number//numberCounter0
-            result = num3 + num2 + num1     
+            num3 = (number % numberCounter0) * numberCounter00
+            number = number // numberCounter0
+            num2 = (number % numberCounter0) * numberCounter0
+            num1 = number // numberCounter0
+            result = num3 + num2 + num1
     else:
         continue
     print(numberType, result)
