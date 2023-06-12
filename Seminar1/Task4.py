@@ -6,7 +6,7 @@
 from random import randint
 
 LOWER_LIMIT = 0
-UPPER_LIMIT = 1000+1
+UPPER_LIMIT = 1000
 count = 3
 num = randint(LOWER_LIMIT, UPPER_LIMIT)
 
