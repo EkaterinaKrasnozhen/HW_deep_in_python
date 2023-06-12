@@ -11,7 +11,7 @@ c = 12
 
 if a + b < c or a + c < b or b + c < a:
     print("треугольника с такими сторонами не существует")
-elif a == b and b == c and a == c:
+elif a == b == c:
     print("равносторонний")
 elif a == b or b == c or a == c:
     print("равнобедренный")
