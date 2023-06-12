@@ -23,7 +23,7 @@ while True:
             result = number * number
         elif number // numberCounter00 == 0: #возможно надо было оставить 10, 100 и 1000 числами
             numberType = "двузначное число"
-            result = (number%numberCounter0) * (number//numberCounter0)
+            result = (number % numberCounter0) * (number // numberCounter0)
         else:
             numberType = "трёхзначное число"
             num3 = (number % numberCounter0) * numberCounter00
