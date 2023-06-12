@@ -17,7 +17,7 @@ min = 0
 max = 999
 while True:
     number = int(input("введите число от 1 до 999: "))
-    if (min < number | number < max):
+    if min <= number <= max:
         if number // numberCounter0 == 0:
             numberType = "цифра"
             result = number * number
