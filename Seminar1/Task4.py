@@ -10,21 +10,19 @@ UPPER_LIMIT = 1000
 count = 3
 num = randint(LOWER_LIMIT, UPPER_LIMIT)
 
-while True:
+while count :
     userNum = int(input("Угадайте число от 0 до 1000"))
-    if count > 1:
-        if num < userNum:
-            count -= 1
-            print("ваше число больше загаданного, осталось попыток: ", count)
-            continue
+    if num < userNum:
+        count -= 1
+        print("ваше число больше загаданного, осталось попыток: ", count)
 
-        elif num > userNum:
-            count -=1
-            print("ваше число меньше загаданного, осталось попыток: ", count)
-            continue
+    elif num > userNum:
+        count -=1
+        print("ваше число меньше загаданного, осталось попыток: ", count)
 
-        else:
-            print("Угадали!")
-            break
-    elif count == 1:
-        print("попытки исчерпаны, вы не угадали")
+    else:
+        print("Угадали!")
+        break
+
+else:
+    print("попытки исчерпаны, вы не угадали")
