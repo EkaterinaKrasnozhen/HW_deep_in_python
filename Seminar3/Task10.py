@@ -9,7 +9,7 @@ print(my_str)
 res_list = []
 my_dic = {}
 for item in my_str:
-    my_dic[item] = my_dic.get(item, my_str.count(item))
+    my_dic[item] = my_dic.get(item, 0) + 1
     if my_str.count(item) >= 10:
         if item not in res_list:
             res_list.append(item)
