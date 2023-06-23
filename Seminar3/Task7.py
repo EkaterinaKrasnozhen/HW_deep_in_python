@@ -25,9 +25,7 @@ my_dict = {}
 
 for char in result_text:
     if  char in my_dict:
-        my_dict[char] +=1
-    else:
-        my_dict[char] = 1
+        my_dict[char] = my_dict.get(char, 0) + 1
 
     
 my_dict2 = {}
