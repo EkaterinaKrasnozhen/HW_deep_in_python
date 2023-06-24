@@ -8,38 +8,52 @@
 # если больше 5 млн - налог на богатство 10% перед каждой операцией, даже ошибочной
 # любое действие выводит сумму денег
 
-# снятие
-def minus(summ, balance):
-    percent = (balance / 100) * 1.5 # по-моему на семинаре озвучили, что % \
-        #именно от общего баланса, но наверно правильнее от суммы снятия. Делаю от общего баланса
+import datetime
+
+balance = 350
+oper_list = {}
+date_time = datetime.datetime.now()
+print(date_time)
+count = 0
+
+def minus(summ):
+    """снятие
+    """
+    global balance
+    global oper_list
+    percent = (balance / 100) * 1.5 
     if balance > summ + percent:
         if 30 > percent:
             percent = 30
         elif percent > 600:
             percent = 600
         balance = balance - summ - percent
-        print(balance)
+        oper_list.setdefault(date_time, ['снятие', summ])
+        print(balance, oper_list)
     else:
         print("Баланс с учетом % за снятие меньше снимаемой суммы")
     return balance
 
-# внесение
-def plus_(summ, balance):
+
+def plus_(summ):
+    """внесение
+    """
+    global balance
+    global oper_list
     balance = float(balance + summ)
-    print(balance)
+    oper_list.setdefault(date_time, ['пополнение', summ]) # не добавляет
+    print(balance, oper_list)# нет словаря с операциями
     return balance
 
-# выход
+
 def bye():
+    """выход
+    """
     print("бланс" + str(balance))
     print("До свидания")
     exit()
     
     
-count = 0
-balance = 6000000000000
-
-#не пойму куда вводить переменные balance и count чтобы внутри бесконечного цикла сохранялись текущие значения?
 while True:
     
     answer = input("Действия: 1 - Пополнить, 2 - Снять, 3 - Выход")
@@ -61,7 +75,7 @@ while True:
                 print("Выввели неверную сумму и вернетесь в главное меню. Баланс: "+ str(balance))
                 continue
             else:
-                balance = plus_(user_summ, balance)
+                balance = plus_(user_summ)
                 count += 1
 
         case "2":
@@ -70,7 +84,7 @@ while True:
                 print("Вы ввели неверную сумму и вернетесь в главное меню. Баланс: "+ str(balance))
                 continue
             else:
-                balance = minus(user_summ, balance)
+                balance = minus(user_summ)
                 count += 1
                 
         case "3":
