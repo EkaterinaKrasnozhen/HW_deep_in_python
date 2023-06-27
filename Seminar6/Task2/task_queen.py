@@ -8,11 +8,15 @@
 # Программа получает на вход восемь пар чисел, каждое число от 1 до 8 - 
 # координаты 8 ферзей. 
 # Если ферзи не бьют друг друга верните истину, а если бьют - ложь.
+from random import randint as rnd
+
 __all__ = ['queen']
 
 def queen(list_, n):
-    x = [] # координаты по оси х
-    y = [] # координаты по оси y
+    """проверка бьют ли друга друга ферзи
+    """
+    x =  [] #координаты по оси х
+    y =  [] #координаты по оси y
     game = True
     for item in list_:
         x.append(item[0])
@@ -25,6 +29,32 @@ def queen(list_, n):
     
     return game
 
+
+def queen_rnd(n):
+    """генератор псевдослучайных вариантов расстановки ферзей
+    """
+    list_ = []
+    while len(list_) < n:
+        list_.append([rnd(1, n), rnd(1, n)])
+    return list_
+
+
+def start_rnd(num):
+    """получаем варианты расстановки ферзей, когда они не бьют другу друга
+    с помощью генератора псевдослучайных чисел
+    """ 
+    count = 0
+    STOP = 4
+    res_xy = []
+    while count < STOP: # не могу выйти из цикла, получается бесконечный и зависает
+        res = queen_rnd(num)
+        if queen(res, num):
+            count += 1                    
+            res_xy.append(res)
+
+    return res_xy
+    
+            
     
 q = [[1, 1], [3, 4], [2, 7], [4, 6], [5, 8], [6, 2], [7, 5], [8, 3]] # True
 q2 = [[4, 4], [3, 3], [2, 5], [1, 7], [5, 8], [6, 6], [7, 4], [8, 2]] # False
@@ -33,4 +63,8 @@ n = 8
     
                     
 if __name__ == '__main__':
-    print(queen(q3, n))
+    
+    my_list = queen_rnd(n)
+    print(my_list)
+    print(queen(my_list, n))
+    #start_rnd(n) # зависает
