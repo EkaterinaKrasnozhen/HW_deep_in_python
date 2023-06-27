@@ -7,13 +7,17 @@
 #В модуль с проверкой даты добавьте возможность запуска в терминале с передачей даты на проверку.
 from sys import argv
 
+__all__ = ['_visokos', 'calend']
+
 MIN_YEAR = 1
 MAX_YEAR = 10000
+
 
 # проверка на високосный год
 def _visokos(year):
     return year % 4 == 0 and year % 100 != 0 or year % 400 == 0
  # високосный
+
 
 # возможна ли такая дата    
 def calend(day, month, year):
@@ -30,7 +34,7 @@ def calend(day, month, year):
                    11: 30,
                    12: 31}
 
-    day, month, year = map(int, (date.split('.')))
+    #day, month, year = map(int, (date.split('.')))
     if (MIN_YEAR <= year < MAX_YEAR) and (month in set_monthes.keys()):
         if month == 2 and (_visokos(year)):
             set_monthes[month] = 29    
