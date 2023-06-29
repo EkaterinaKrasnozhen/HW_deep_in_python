@@ -19,6 +19,7 @@ def sort_files(dict):
         for file in files:
             if str(file.split(".")[1]) in ext:
                 os.replace(file, os.path.join(os.getcwd(), folder, file))
+    
 
 
 if __name__ == '__main__':
