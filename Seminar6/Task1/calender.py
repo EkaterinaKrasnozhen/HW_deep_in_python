@@ -35,7 +35,7 @@ def calend(day, month, year):
                    12: 31}
 
     #day, month, year = map(int, (date.split('.')))
-    if (MIN_YEAR <= year < MAX_YEAR) and (month in set_monthes.keys()):
+    if MIN_YEAR <= year < MAX_YEAR and month in set_monthes.keys():
         if month == 2 and (_visokos(year)):
             set_monthes[month] = 29    
         if day in range(1, set_monthes[month]+1):    
