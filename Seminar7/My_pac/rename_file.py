@@ -15,8 +15,6 @@ import os
 def rename_file(new_name, exten_old, exten_new):
     
     for i, files in enumerate(os.listdir(), start=1):
-
-        # print(i, files.split(".")[1])
         if files.split(".")[1] == exten_old:
             Path(files).rename(f'{files.split(".")[0]}{new_name}{i}.{exten_new}')
             

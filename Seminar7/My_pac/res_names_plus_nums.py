@@ -23,6 +23,7 @@ def read_line(file: typing.TextIO):# если при записи закончи
         line = file.readline()
     return line[:-1] #убрать последнюю пустую строку
 
+
 def my_func():
 
     with (

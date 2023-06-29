@@ -21,6 +21,5 @@ def sort_files(dict):
                 os.replace(file, os.path.join(os.getcwd(), folder, file))
     
 
-
 if __name__ == '__main__':
     sort_files(my_dict)
