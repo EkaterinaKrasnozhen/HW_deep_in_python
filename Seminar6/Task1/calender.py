@@ -45,10 +45,7 @@ def calend(day, month, year):
 
 if __name__ == '__main__':
     _, date = argv
-    my_list = ''
-    for chr in date:
-        my_list += str(chr)
-    print(calend(*map(int, (my_list.split(".")))))
+    print(calend(*map(int, date.split("."))))
 
 
 
