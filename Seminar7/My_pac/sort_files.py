@@ -6,7 +6,7 @@
 import os
 
 my_dict = {'Video': ['mp4', 'dvd', 'avi'],
-           'Image': ['png', 'jpg', 'jpeg'],
+           'Img': ['png', 'jpg', 'jpeg'],
            'Text': ['txt', 'pdf']}
 
 
@@ -20,4 +20,6 @@ def sort_files(dict):
             if str(file.split(".")[1]) in ext:
                 os.replace(file, os.path.join(os.getcwd(), folder, file))
 
-sort_files(my_dict)
+
+if __name__ == '__main__':
+    sort_files(my_dict)

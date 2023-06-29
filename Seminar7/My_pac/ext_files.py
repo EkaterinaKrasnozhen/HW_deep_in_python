@@ -34,6 +34,7 @@ def create_diff_ext(**kwargs):
         create_file(ext, count=num)
 
 
-#create_diff_ext(txt=2)
-#create_file('txt')    
+if __name__ == '__main__':
+    create_diff_ext(txt=2)
+    create_file('txt')    
     
