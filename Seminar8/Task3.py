@@ -12,7 +12,6 @@ def to_csv(file_name):
         open('new_.csv', 'w', newline='', encoding='utf-8') as f_write
     ):
         json_dict = json.load(f_read)
-        print(json_dict)
         data = []
         for gread, in_dict in json_dict.items():
             for id_, name in in_dict.items():
