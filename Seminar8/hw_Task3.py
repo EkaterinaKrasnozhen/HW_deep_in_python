@@ -20,20 +20,23 @@ def walk_in_path(dir_path):
     file_size = {}
     # my_list = os.listdir()
     # print(my_list)
+    res_dict = {}
+    res_dict2 = {}
     res_files = []
     res_folders = []
-    for  root, dirs, files in os.walk(dir_path):
-        res_files += [(name, getsize(join(root, name)), os.path.isfile(name)) for name in files]
+    # for  root, dirs, files in os.walk(dir_path):
+    #     res_files += [(name, getsize(join(root, name)), os.path.isfile(name)) for name in files]
+    total_size = os.path.getsize(dir_path)
+    #print(dir_path, total_size)
+    for item in os.listdir(dir_path):
+        if os.path.isfile(os.path.join(dir_path, item)):
+            res_dict.setdefault(os.path.join(dir_path), [])
+            res_dict[os.path.join(dir_path)].append([item, os.path.getsize(os.path.join(dir_path, item))])
+            #res_files += [os.path.join(dir_path), item, os.path.getsize(os.path.join(dir_path, item))]
+        elif os.path.isdir(os.path.join(dir_path, item)):
+            res_dict2 = walk_in_path(os.path.join(dir_path, item))
         
-        
-    print(res_files)
-    #     for file in files:
-    #         #print(get_size(file))
-    #         file_size[file] = get_size(file)
-    # print(file_size)
+    return(res_dict, res_dict2)
 
-    #     dir_dict[str(dir_path)] = {str({dir_name: os.path.isdir(dir_name)}): str({file_name: os.path.isfile(file_name)})}
         
-    # print(dir_dict)
-        
-walk_in_path(os.getcwd())
+print(walk_in_path('Seminar8'))
