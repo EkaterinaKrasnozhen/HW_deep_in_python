@@ -17,9 +17,6 @@ def add_id(file_json):
 
     with open(file_json, 'r', encoding='utf-8') as f:
             my_dict = json.load(f)
-    # else:
-    # my_dict = {str(i):{} for i in range(1, 8)}
-    
     
     while True:
         data = input('через пробел: имя, личный идентификатор и уровень доступа (от 1 до 7)')
@@ -38,5 +35,5 @@ def add_id(file_json):
         
         
 
-        
-add_id('new_user_json')
+if __name__ == '__main__':        
+    add_id('new_user_json')

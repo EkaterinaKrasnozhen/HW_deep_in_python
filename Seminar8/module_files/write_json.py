@@ -16,7 +16,7 @@ def file_json(file_name):
         open(file_name, 'r', encoding='utf-8') as f,
         open('file_json', 'w', encoding='utf-8') as j
     ):
-        #print(list(f))
+
         my_dict = {}
         for row in f:
             key, value = row.replace('\n', '').split(',')
