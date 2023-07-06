@@ -7,7 +7,6 @@
 import random
 import csv
 
-
 MIN = -4
 MAX = 6
 NUM_OF = 3
