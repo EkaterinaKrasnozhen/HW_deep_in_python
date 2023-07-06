@@ -8,10 +8,10 @@ import csv
 import json
 import os
 from typing import Callable
-from task_rand_cvs import quadro_
 
 
-def star_quadro_fromcsv(func: Callable):
+# передача аргументов в функцию из файла
+def start_quadro_fromcsv(func: Callable):
     def wrapper(*args):
         with open('rand_int.csv', 'r', newline='', encoding='utf-8') as f_read:
             res = []
@@ -24,6 +24,7 @@ def star_quadro_fromcsv(func: Callable):
     return wrapper
 
 
+# логирование аргументов и результатов работы функции
 def cache_to_json(func: Callable):
     def wrapper(*args):
         file_name = func.__name__+ '.json'
@@ -43,20 +44,4 @@ def cache_to_json(func: Callable):
             json.dump(my_dict, writer, indent=1, ensure_ascii=False)    
         return my_dict
     return wrapper
-
-
-@star_quadro_fromcsv
-@cache_to_json   
-def quadric_eq(a, b, c):
-    """нахождение корней квадратного уравнения
-    """
-    d = b**2 - 4 * a * c
-    x1 = (-1) * b + d**0.5 / 2 * a
-    x2 = (-1) * b - d**0.5 / 2 * a
-    
-    return (d, x1, x2)
-    
-if __name__ == "__main__":
-    quadric_eq(1,2,3)
-
-                
+               
