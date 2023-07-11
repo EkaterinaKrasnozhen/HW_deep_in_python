@@ -9,7 +9,7 @@ names = ['Ivan', 'Serg', 'Petr']
 salarys = [1000, 2000, 3000]
 awards = ['10.25%', '10.00%', '10.5%']
 my_dict ={}
-my_gen = {name: salary * float(award[:-1]) / 100} for name, salary, award in zip(names, salarys, awards)
+my_gen = ({name: salary * float(award[:-1]) / 100} for name, salary, award in zip(names, salarys, awards))
          
 
 my_iter = iter(my_gen)
