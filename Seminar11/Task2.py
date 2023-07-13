@@ -14,17 +14,19 @@ class Archiv:
     list_str = []
     
     def __init__(self, number, string):
-        """ Создание экзмепляра класса Архив со свойства (втч списки)."""
+        """ Создание экзмепляра класса Архив со свойства (втч списки). """
         self.number = number
         self.string = string
         self.list_num.append(self.number)
         self.list_str.append(self.string)
         
     def __str__(self):
+        """ Выввод для пользователя. """
         lst = 'список чисел: ' + str(self.list_num) + ', ' + 'список строк: ' + str(self.list_str)
         return lst
     
     def __repr__(self):
+        """ Вывод для программиста. """
         return f'список чисел {self.list_num}, список строк {self.list_str}'
         
 obj = Archiv(3, 'da')

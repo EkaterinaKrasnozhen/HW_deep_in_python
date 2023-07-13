@@ -25,7 +25,17 @@ class MyString(str):
         instance.time_create = time.time()
         return instance
     
+    def __str__(self):
+        """вывод для пользователя"""
+        return f'{self.name=} текст: {super().__str__()} время: {self.time_create}'
+    
+    def __repr__(self):
+        """вывод для программиста"""
+        return f'MyString({super().__repr__()}, {self.name})'
+    
 
-str1 = MyString('Hello my name is', 'Kate')
-print(str1, str1.name, str1.time_create)
-print(str1.__doc__)
+if __name__ == '__main__':
+    str1 = MyString('Hello my name is', 'Kate')
+    print(str1.upper())
+    print(repr(str1))
+    print(str1.__doc__)
