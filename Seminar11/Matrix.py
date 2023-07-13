@@ -6,6 +6,7 @@
 
 class Matrix:
     """ Класс Матрица. """
+    
     def __init__(self, matrix):
         """ Инициализация экземпляра. """
         self.matrix = matrix
